@@ -10,6 +10,8 @@ var page = {
     },
     
     run : function(){
+        console.log('run...');
+        
         page.editor = CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
           lineNumbers: true,
           matchBrackets: true,
@@ -47,7 +49,6 @@ var page = {
     },
     
     main : function(){
-        console.log('Start...');
         page.setEventlistner();
     }
 };
