@@ -17,6 +17,8 @@ var page = {
     
     setSelected : function(file){
         console.log(file);
+        console.log(file.jsCode);
+        console.log('----------------------------------------');
     },
     
     setTree : function(json){
@@ -28,8 +30,7 @@ var page = {
             for(i = 0, j = data.selected.length; i < j; i++) {
               r.push(data.instance.get_node(data.selected[i]));
             }
-            console.log(r[0]);
-            page.setSelected(r[0].text);
+            page.setSelected(r[0].original);
         });
     },
     
