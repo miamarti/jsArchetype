@@ -15,7 +15,10 @@ var page = {
         } });
     },
     
-    main : function(){
+    run : function(){
+        $('#codeArea').removeClass('col-md-12');
+        $('#codeArea').addClass('col-md-8');
+        $('#treeArea').fadeIn('slow');
         page.setTree([
            { "id" : "resources", "parent" : "#", "text" : "resources", "state" : { "opened" : true } },
            { "id" : "js", "parent" : "resources", "text" : "js", "state" : { "opened" : true } },
@@ -34,7 +37,15 @@ var page = {
            { "id" : "fileG", "parent" : "services", "text" : "fileG.js", "icon" : "glyphicon glyphicon-fire" },
            { "id" : "fileH", "parent" : "services", "text" : "fileH.js", "icon" : "glyphicon glyphicon-fire" },
            { "id" : "fileI", "parent" : "services", "text" : "fileI.js", "icon" : "glyphicon glyphicon-fire" }
-        ]);
+        ]);        
+    },
+    
+    setEventlistner : function(){
+        $('#btnRun').click(page.run);
+    },
+    
+    main : function(){
+        page.setEventlistner();
     }
 };
 page.main();
