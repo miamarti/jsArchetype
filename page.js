@@ -1,11 +1,5 @@
 var page = {
-    editor : CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
-      lineNumbers: true,
-      matchBrackets: true,
-      styleActiveLine: true,
-      matchBrackets: true,
-      theme : 'monokai'
-    }),
+    editor : undefined,
     
     setTree : function(json){
         console.log(json);
@@ -16,6 +10,14 @@ var page = {
     },
     
     run : function(){
+        page.editor = CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
+          lineNumbers: true,
+          matchBrackets: true,
+          styleActiveLine: true,
+          matchBrackets: true,
+          theme : 'monokai'
+        });
+    
         $('#codeArea').removeClass('col-md-12');
         $('#codeArea').addClass('col-md-8');
         $('#treeArea').fadeIn('slow');
