@@ -51,8 +51,4 @@ var page = {
         page.setEventlistner();
     }
 };
-page.main();
-
-$(document).ready(function() {
-    console.log( "ready!" );
-});
+$(document).ready(page.main);
