@@ -52,3 +52,7 @@ var page = {
     }
 };
 page.main();
+
+$(document).ready(function() {
+    console.log( "ready!" );
+});
