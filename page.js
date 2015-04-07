@@ -49,17 +49,17 @@ var page = {
         
         data.jsArchetype.controllers.forEach(function(obj) {
             id++;
-            data.tree.push({ "id" : id, "parent" : "controllers", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf" });
+            data.tree.push({ "id" : id, "parent" : "controllers", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf", "jsCode": obj.jsCode });
         });
         
         data.jsArchetype.services.forEach(function(obj) {
             id++;
-            data.tree.push({ "id" : id, "parent" : "services", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf" });
+            data.tree.push({ "id" : id, "parent" : "services", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf", "jsCode": obj.jsCode });
         });
         
         data.jsArchetype.models.forEach(function(obj) {
             id++;
-            data.tree.push({ "id" : id, "parent" : "models", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf" });
+            data.tree.push({ "id" : id, "parent" : "models", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf", "jsCode": obj.jsCode });
         });
         
         return data;
