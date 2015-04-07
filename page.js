@@ -10,7 +10,7 @@ var page = {
     },
     
     run : function(){
-        console.log('run...');
+        console.log(document.getElementById("condeConfig"));
         
         page.editor = CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
           lineNumbers: true,
