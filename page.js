@@ -16,10 +16,10 @@ var page = {
     
     main : function(){
         page.setTree([
-           { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" },
-           { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
-           { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" },
-           { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" }
+           { "id" : "resources", "parent" : "#", "text" : "resources" },
+           { "id" : "js", "parent" : "resources", "text" : "js" },
+           { "id" : "ajson3", "parent" : "js", "text" : "Child 1", "icon" : "glyphicon glyphicon-file" },
+           { "id" : "ajson4", "parent" : "js", "text" : "Child 2", "icon" : "glyphicon glyphicon-file" }
         ]);
     }
 };
