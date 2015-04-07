@@ -10,6 +10,7 @@ var page = {
     setTree : function(json){
         console.log(json);
         $('#filesTree').jstree({ 'core' : {
+            "multiple" : false,
             'data' : json
         } });
     },
