@@ -45,6 +45,7 @@ var page = {
     },
     
     main : function(){
+        console.log('Start...');
         page.setEventlistner();
     }
 };
