@@ -1,5 +1,3 @@
-console.log('Yes!!!');
-
 var page = {
     editor : CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
       lineNumbers: true,
