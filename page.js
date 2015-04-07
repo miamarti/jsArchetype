@@ -60,7 +60,7 @@ var page = {
     },
     
     run : function(){
-        var payload = page.editor.getValue();
+        var payload = eval(page.editor.getValue());
         console.log(payload);
         page.archetype = page.getGenerator();
         page.showResult();
