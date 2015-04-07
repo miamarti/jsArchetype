@@ -18,8 +18,12 @@ var page = {
         page.setTree([
            { "id" : "resources", "parent" : "#", "text" : "resources" },
            { "id" : "js", "parent" : "resources", "text" : "js" },
-           { "id" : "ajson3", "parent" : "js", "text" : "Child 1", "icon" : "glyphicon glyphicon-file" },
-           { "id" : "ajson4", "parent" : "js", "text" : "Child 2", "icon" : "glyphicon glyphicon-file" }
+           { "id" : "controllers", "parent" : "resources", "text" : "controllers" },
+           { "id" : "models", "parent" : "js", "text" : "models" },
+           { "id" : "services", "parent" : "js", "text" : "services" },
+           
+           { "id" : "fileA", "parent" : "controllers", "text" : "fileA.js", "icon" : "glyphicon glyphicon-file" },
+           { "id" : "fileB", "parent" : "controllers", "text" : "fileB.js", "icon" : "glyphicon glyphicon-file" }
         ]);
     }
 };
