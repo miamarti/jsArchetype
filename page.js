@@ -21,7 +21,7 @@ var page = {
             for(i = 0, j = data.selected.length; i < j; i++) {
               r.push(data.instance.get_node(data.selected[i]).text);
             }
-            page.showSelected(r);
+            page.showSelected(r[0]);
         });
     },
     
