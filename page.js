@@ -17,8 +17,8 @@ var page = {
     
     main : function(){
         page.setTree([
-           { "id" : "resources", "parent" : "#", "text" : "resources" },
-           { "id" : "js", "parent" : "resources", "text" : "js" },
+           { "id" : "resources", "parent" : "#", "text" : "resources", "state" : { "opened" : true } },
+           { "id" : "js", "parent" : "resources", "text" : "js", "state" : { "opened" : true } },
            { "id" : "controllers", "parent" : "js", "text" : "controllers" },
            { "id" : "models", "parent" : "js", "text" : "models" },
            { "id" : "services", "parent" : "js", "text" : "services" },
