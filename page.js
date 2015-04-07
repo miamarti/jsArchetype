@@ -26,9 +26,10 @@ var page = {
         } }).on('changed.jstree', function(e, data) {
             var i, j, r = [];
             for(i = 0, j = data.selected.length; i < j; i++) {
-              r.push(data.instance.get_node(data.selected[i]).text);
+              r.push(data.instance.get_node(data.selected[i]));
             }
-            page.setSelected(r[0]);
+            console.log(r[0]);
+            page.setSelected(r[0].text);
         });
     },
     
