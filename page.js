@@ -1,4 +1,4 @@
-jQuery(document).on("pageload", function(){
+$(document).on("pageload",function(){
     console.log('Yes!!!');
     
     var page = {
