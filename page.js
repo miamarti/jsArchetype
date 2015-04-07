@@ -42,10 +42,6 @@ var page = {
                { "id" : "models", "parent" : "js", "text" : "models" },
                { "id" : "services", "parent" : "js", "text" : "services" },
                
-               { "id" : "fileA", "parent" : "controllers", "text" : "fileA.js", "icon" : "glyphicon glyphicon-leaf" },
-               { "id" : "fileB", "parent" : "controllers", "text" : "fileB.js", "icon" : "glyphicon glyphicon-leaf" },
-               { "id" : "fileC", "parent" : "controllers", "text" : "fileC.js", "icon" : "glyphicon glyphicon-leaf" },
-               
                { "id" : "fileD", "parent" : "models", "text" : "fileD.js", "icon" : "glyphicon glyphicon-file" },
                { "id" : "fileE", "parent" : "models", "text" : "fileE.js", "icon" : "glyphicon glyphicon-file" },
                { "id" : "fileF", "parent" : "models", "text" : "fileF.js", "icon" : "glyphicon glyphicon-file" },
@@ -57,6 +53,19 @@ var page = {
                { "id" : "App", "parent" : "resources", "text" : "App.js", "icon" : "glyphicon glyphicon-fire", "state" : { "selected" : true } }
             ]
         };
+        
+        data.jsArchetype.controllers.forEach(function(obj) {
+            data.tree.push({ "id" : obj.jsCode.className, "parent" : "controllers", "text" : obj.jsCode.jsName, "icon" : "glyphicon glyphicon-leaf" });
+        });
+        
+        data.jsArchetype.services.forEach(function(obj) {
+            //console.log(obj.jsCode);
+        });
+        
+        data.jsArchetype.models.forEach(function(obj) {
+            //console.log(obj.jsCode);
+        });
+        
         return data;
     },
     
