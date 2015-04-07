@@ -9,7 +9,7 @@ $(document).on("pageload", function(){
         }),
         
         setTree : function(json){
-            $('#using_json_2').jstree({ 'core' : {
+            $('#filesTree').jstree({ 'core' : {
                 'data' : json
             } });
         }
