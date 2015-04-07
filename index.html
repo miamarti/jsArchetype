@@ -18,14 +18,6 @@
     <script src="http://static.jstree.com/3.1.0/assets/dist/jstree.min.js"></script>
     <script src="jsArchetype.v1.0.1.js"></script>
     <script src="page.js"></script>
-    <script>
-      var editor = {};
-      var example = "{\n    type : 'angular',\n    projectName : 'Seller app',\n    packagePath : 'adminmp-sellers/resources/js',\n    controllers : [ {\n	name : 'Seller edit',\n	includes : [ '$rootScope', '$state', '$location' ]\n    }, {\n	name : 'Product edit',\n	includes : [ '$rootScope', '$state', '$location' ]\n    } ],\n    services : [ {\n	name : 'Seller',\n	includes : []\n    }, {\n	name : 'Product',\n	includes : []\n    } ],\n    models : [ {\n	name : 'Seller bean',\n	signature : {\n	    'name' : '',\n	    'email' : '',\n	    'fone' : ''\n	}\n    }, {\n	name : 'Product bean',\n	signature : {\n	    'name' : '',\n	    'description' : '',\n	    'quantityInStock' : ''\n	}\n    } ]\n}";
-      var setNew = function(){
-        localStorage.setItem('sArchetype', example);
-        editor.setValue(example);
-      };
-    </script>
     <title>jsArchetype .'. Angular JS</title>
 
     <!-- Bootstrap core CSS -->
@@ -69,6 +61,8 @@
             <p class="lead">Enter your signature in <span itemprop="requirements">json</span> format.</p>
             <p class="clearfix" style="display: inline-table; width: 100%; text-align: right;"><span id="jsGeneratorBean-fileName" style="position: relative; left: 20px; top: 20px;"></span></p>
             <p class="clearfix" style="display: inline-table; width: 100%; margin: 20px;text-align: left;">
+            	<div class="row">
+			<div class="col-md-8">
                 <textarea id="condeConfig">{
     type : 'angular',
     projectName : 'Seller app',
@@ -106,39 +100,13 @@
 	}
     } ]
 }</textarea>
+			</div>
+  			<div class="col-md-4">
+  				<div id="filesTree"></div>
+  			</div>
+            	</div>
             </p>
-            <script>
-              editor = CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
-                lineNumbers: true,
-                matchBrackets: true,
-                styleActiveLine: true,
-                matchBrackets: true,
-                theme : 'monokai'
-              });
-              
-              var sArchetype = "";
-              var edit = false;
-              if(localStorage.getItem('sArchetype') != null){
-                sArchetype = localStorage.getItem('sArchetype');
-              } else {
-                sArchetype = example;
-              }
-              editor.setValue(sArchetype);
-              
-              var generateNow = function(btn){
-                if(edit){
-                  btn.innerHTML = 'Generate now';
-                  editor.setValue(sArchetype);
-                  edit = false;
-                } else {
-                  btn.innerHTML = 'Edit configuration';
-                  edit = true;
-                  sArchetype = editor.getValue();
-                  localStorage.setItem('sArchetype', sArchetype);
-                  editor.setValue(jsGeneratorBean((new Function('return ' + editor.getValue() + ';'))()));
-                }
-              };
-            </script>
+            
             <p class="lead">
               <a onclick="generateNow(this)" class="btn btn-lg btn-default">Generate now</a>
             </p>
