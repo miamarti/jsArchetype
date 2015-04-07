@@ -57,7 +57,7 @@ var page = {
         
         data.jsArchetype.controllers.forEach(function(obj) {
             id++;
-            data.tree.push({ "id" : id, "parent" : "controllers", "text" : obj.jsCode.jsName, "icon" : "glyphicon glyphicon-leaf" });
+            data.tree.push({ "id" : id, "parent" : "controllers", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf" });
         });
         
         data.jsArchetype.services.forEach(function(obj) {
