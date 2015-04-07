@@ -1,4 +1,6 @@
 var page = {
+    archetype : undefined,
+    
     editor : CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
       lineNumbers: true,
       matchBrackets: true,
@@ -58,9 +60,11 @@ var page = {
     },
     
     run : function(){
-        var data = page.getGenerator();
+        var payload = page.editor.getValue();
+        console.log(payload);
+        page.archetype = page.getGenerator();
         page.showResult();
-        page.setTree(data.tree);
+        page.setTree(page.archetype.tree);
     },
     
     setEventlistner : function(){
