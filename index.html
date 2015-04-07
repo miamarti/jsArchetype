@@ -61,10 +61,11 @@
           <div class="inner cover">
             <h1 class="cover-heading"><span itemprop="operatingSystem">JavaScript</span> <span itemprop="applicationCategory">Archetype</span> </h1>
             <p class="lead">Enter your signature in <span itemprop="requirements">json</span> format.</p>
+            
             <p class="clearfix app">
             	<div class="row">
-			<div class="col-md-8 lft">
-                <textarea id="condeConfig">{
+			<div id="codeArea" class="col-md-12 lft">
+                		<textarea id="condeConfig">{
     type : 'angular',
     projectName : 'Seller app',
     packagePath : 'adminmp-sellers/resources/js',
@@ -102,14 +103,14 @@
     } ]
 }</textarea>
 			</div>
-  			<div class="col-md-4 lft">
+  			<div id="treeArea" class="col-md-4 lft">
   				<div id="filesTree"></div>
   			</div>
             	</div>
             </p>
             
             <p class="lead">
-              <a onclick="generateNow(this)" class="btn btn-lg btn-default">Generate now</a>
+              <a id="btnRun" class="btn btn-lg btn-default">Generate now</a>
             </p>
           </div>
           <div class="mastfoot w900px">
