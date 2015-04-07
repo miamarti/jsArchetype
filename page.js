@@ -7,12 +7,22 @@ var page = {
       theme : 'monokai'
     }),
     
+    showSelected : function(file){
+        console.log(file);
+    },
+    
     setTree : function(json){
         console.log(json);
         $('#filesTree').jstree({ 'core' : {
             "multiple" : false,
             'data' : json
-        } });
+        } }).on('changed.jstree', function(e, data) {
+            var i, j, r = [];
+            for(i = 0, j = data.selected.length; i < j; i++) {
+              r.push(data.instance.get_node(data.selected[i]).text);
+            }
+            page.showSelected(r);
+        });
     },
     
     run : function(){
