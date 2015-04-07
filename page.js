@@ -1,4 +1,6 @@
-$(document).on("pageload", function(){
+jQuery(".selector").on("pageload", function(){
+    console.log('Yes!!!');
+    
     var page = {
         editor : CodeMirror.fromTextArea(document.getElementById("condeConfig"), {
           lineNumbers: true,
