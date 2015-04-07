@@ -24,7 +24,8 @@ var page = {
            { "id" : "services", "parent" : "js", "text" : "services" },
            
            { "id" : "fileA", "parent" : "controllers", "text" : "fileA.js", "icon" : "glyphicon glyphicon-leaf" },
-           { "id" : "fileB", "parent" : "controllers", "text" : "fileB.js", "icon" : "glyphicon glyphicon-file" }
+           { "id" : "fileB", "parent" : "controllers", "text" : "fileB.js", "icon" : "glyphicon glyphicon-file" },
+           { "id" : "fileC", "parent" : "controllers", "text" : "fileC.js", "icon" : "glyphicon glyphicon-fire" }
         ]);
     }
 };
