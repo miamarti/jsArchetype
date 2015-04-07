@@ -18,7 +18,7 @@ var page = {
         page.setTree([
            { "id" : "resources", "parent" : "#", "text" : "resources" },
            { "id" : "js", "parent" : "resources", "text" : "js" },
-           { "id" : "controllers", "parent" : "resources", "text" : "controllers" },
+           { "id" : "controllers", "parent" : "js", "text" : "controllers" },
            { "id" : "models", "parent" : "js", "text" : "models" },
            { "id" : "services", "parent" : "js", "text" : "services" },
            
