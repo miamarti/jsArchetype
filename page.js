@@ -32,8 +32,9 @@ var page = {
         });
     },
     
-    getGenerator : function(){
+    getGenerator : function(payload){
         var data = {
+            jsArchetype : jsArchetype.run(payload),
             tree : [
                { "id" : "resources", "parent" : "#", "text" : "resources", "state" : { "opened" : true } },
                { "id" : "js", "parent" : "resources", "text" : "js", "state" : { "opened" : true } },
@@ -60,9 +61,8 @@ var page = {
     },
     
     run : function(){
-        var payload = (new Function('return ' + page.editor.getValue() + ';'))();
-        console.log(payload);
-        page.archetype = page.getGenerator();
+        page.archetype = page.getGenerator((new Function('return ' + page.editor.getValue() + ';'))());
+        console.log(page.archetype);
         page.showResult();
         page.setTree(page.archetype.tree);
     },
