@@ -15,6 +15,7 @@
     <script src="http://codemirror.net/mode/javascript/javascript.js"></script>
     <script src="http://codemirror.net/addon/selection/active-line.js"></script>
     <script src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
+    <script src="http://static.jstree.com/3.1.0/assets/dist/jstree.min.js"></script>
     <script src="jsArchetype.v1.0.1.js"></script>
     <script>
       var editor = {};
@@ -68,13 +69,41 @@
             <p class="clearfix" style="display: inline-table; width: 100%; text-align: right;"><span id="jsGeneratorBean-fileName" style="position: relative; left: 20px; top: 20px;"></span></p>
             <p class="clearfix" style="display: inline-table; width: 100%; margin: 20px;text-align: left;">
                 <textarea id="condeConfig">{
-  name : 'NameOfYourClass',
-  angular : true,
-  appName : 'YourApplicationAngularJs',
-  signature : {
-    'title' : '',
-    'value' : ''
-  }
+    type : 'angular',
+    projectName : 'Seller app',
+    packagePath : 'adminmp-sellers/resources/js',
+
+    controllers : [ {
+	name : 'Seller edit',
+	includes : [ '$rootScope', '$state', '$location' ]
+    }, {
+	name : 'Product edit',
+	includes : [ '$rootScope', '$state', '$location' ]
+    } ],
+
+    services : [ {
+	name : 'Seller',
+	includes : []
+    }, {
+	name : 'Product',
+	includes : []
+    } ],
+
+    models : [ {
+	name : 'Seller bean',
+	signature : {
+	    'name' : '',
+	    'email' : '',
+	    'fone' : ''
+	}
+    }, {
+	name : 'Product bean',
+	signature : {
+	    'name' : '',
+	    'description' : '',
+	    'quantityInStock' : ''
+	}
+    } ]
 }</textarea>
             </p>
             <script>
