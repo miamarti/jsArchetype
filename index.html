@@ -21,7 +21,7 @@
       var editor = {};
       var example = "{\n  name : 'NameOfYourClass',\n  angular : true,\n  appName : 'YourApplicationAngularJs',\n  signature : {\n    'title' : '',\n    'value' : ''\n  }\n}";
       var setNew = function(){
-        localStorage.setItem('payload', example);
+        localStorage.setItem('sArchetype', example);
         editor.setValue(example);
       };
     </script>
@@ -115,25 +115,25 @@
                 theme : 'monokai'
               });
               
-              var payload = "";
+              var sArchetype = "";
               var edit = false;
-              if(localStorage.getItem('payload') != null){
-                payload = localStorage.getItem('payload');
+              if(localStorage.getItem('sArchetype') != null){
+                sArchetype = localStorage.getItem('sArchetype');
               } else {
-                payload = example;
+                sArchetype = example;
               }
-              editor.setValue(payload);
+              editor.setValue(sArchetype);
               
               var generateNow = function(btn){
                 if(edit){
                   btn.innerHTML = 'Generate now';
-                  editor.setValue(payload);
+                  editor.setValue(sArchetype);
                   edit = false;
                 } else {
                   btn.innerHTML = 'Edit configuration';
                   edit = true;
-                  payload = editor.getValue();
-                  localStorage.setItem('payload', payload);
+                  sArchetype = editor.getValue();
+                  localStorage.setItem('sArchetype', sArchetype);
                   editor.setValue(jsGeneratorBean((new Function('return ' + editor.getValue() + ';'))()));
                 }
               };
