@@ -33,6 +33,7 @@ var page = {
     },
     
     getGenerator : function(payload){
+        var id = 0;
         var data = {
             jsArchetype : jsArchetype.run(payload),
             tree : [
@@ -55,7 +56,8 @@ var page = {
         };
         
         data.jsArchetype.controllers.forEach(function(obj) {
-            data.tree.push({ "id" : obj.jsCode.className, "parent" : "controllers", "text" : obj.jsCode.jsName, "icon" : "glyphicon glyphicon-leaf" });
+            id++;
+            data.tree.push({ "id" : id, "parent" : "controllers", "text" : obj.jsCode.jsName, "icon" : "glyphicon glyphicon-leaf" });
         });
         
         data.jsArchetype.services.forEach(function(obj) {
