@@ -42,9 +42,9 @@
 
       <div class="site-wrapper-inner">
 
-        <div itemscope itemtype="http://schema.org/SoftwareApplication" class="cover-container" style="width: 900px;">
+        <div itemscope itemtype="http://schema.org/SoftwareApplication" class="cover-container w900px">
 
-          <div class="masthead clearfix" style="width: 900px;">
+          <div class="masthead clearfix w900px">
             <div class="inner">
               <h3 itemprop="name" class="masthead-brand">jsArchetype</h3>
               <nav>
@@ -58,9 +58,9 @@
           <div class="inner cover">
             <h1 class="cover-heading"><span itemprop="operatingSystem">JavaScript</span> <span itemprop="applicationCategory">Archetype</span> </h1>
             <p class="lead">Enter your signature in <span itemprop="requirements">json</span> format.</p>
-            <p class="clearfix" style="display: inline-table; width: 100%; margin: 20px;text-align: left;">
+            <p class="clearfix app">
             	<div class="row">
-			<div class="col-md-8" style="text-align: left;">
+			<div class="col-md-8 lft">
                 <textarea id="condeConfig">{
     type : 'angular',
     projectName : 'Seller app',
@@ -99,7 +99,7 @@
     } ]
 }</textarea>
 			</div>
-  			<div class="col-md-4" style="text-align: left;">
+  			<div class="col-md-4 lft">
   				<div id="filesTree"></div>
   			</div>
             	</div>
@@ -109,7 +109,7 @@
               <a onclick="generateNow(this)" class="btn btn-lg btn-default">Generate now</a>
             </p>
           </div>
-          <div class="mastfoot" style="width: 900px;">
+          <div class="mastfoot w900px">
             <div class="inner">
               <p>developed by <a href="https://gitto.io/r/miamarti"><span itemprop="author" itemscope itemtype="http://schema.org/Person">
 <span itemprop="name">Miller Augusto</span></span></a>, visit on <a itemprop="url" href="https://github.com/miamarti/jsGeneratorBean">github</a>.</p>
@@ -122,8 +122,8 @@
 
     </div>
 
-    <div style="position: fixed; top: 250px; z-index: 9999; width: 100%; left: 0px; text-align: center;" id="ads">
-      <div onclick="$('#ads').fadeOut('slow')" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 0; background-color: rgba(0, 0, 0, 0.5); cursor: pointer;"></div>
+    <div class="ads">
+      <div class="blanket" onclick="$('#ads').fadeOut('slow')"></div>
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- jsGeneratorBean -->
       <ins class="adsbygoogle"
