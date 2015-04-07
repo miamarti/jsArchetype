@@ -16,9 +16,10 @@ var page = {
     },
     
     setSelected : function(file){
+        if(file.jsCode != undefined){
+            page.editor.setValue(file.jsCode);
+        }
         console.log(file);
-        console.log(file.jsCode);
-        console.log('----------------------------------------');
     },
     
     setTree : function(json){
