@@ -12,6 +12,10 @@
     width: 1024px !important;
 }
 
+.w95 {
+    width: 95% !important;
+}
+
 .lft {
   text-align: left !important;
 }
