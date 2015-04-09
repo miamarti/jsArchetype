@@ -8,6 +8,10 @@
   width: 900px !important;
 }
 
+.w1024px {
+    width: 1024px !important;
+}
+
 .lft {
   text-align: left !important;
 }
