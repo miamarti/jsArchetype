@@ -68,11 +68,11 @@ var page = {
     },
     
     run : function(){
-        page.editor.setValue('');
         page.archetype = page.getGenerator((new Function('return ' + page.editor.getValue() + ';'))());
         //console.log(page.archetype);
         page.showResult();
         page.setTree(page.archetype.tree);
+        page.editor.setValue('');
     },
     
     setEventlistner : function(){
