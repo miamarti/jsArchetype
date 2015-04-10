@@ -74,6 +74,7 @@ var page = {
         page.setTree(page.archetype.tree);
         page.editor.setValue('');
         $('.codeArea').addClass('w800px');
+        $('#btnRun').fadeOut('slow');
     },
     
     setEventlistner : function(){
