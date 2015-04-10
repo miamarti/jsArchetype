@@ -64,7 +64,9 @@ var jsArchetype = {
 				methods += '        * */\n';
 				methods += '        ' + mthdfs.name + ' : function(){\n';
 				methods += '            $scope.' + mthdfs.variableScope + ' = [];\n';
-				methods += '            ' + mthdfs.service + '.' + mthdfs.name + '().success(function(data) {\n';
+				methods += '            var payload = {};\n';
+				methods += '            var params = {};\n';
+				methods += '            ' + mthdfs.service + '.' + mthdfs.name + '(payload, params).success(function(data) {\n';
 				methods += '            	$scope.' + mthdfs.variableScope + ' = new ' + mthdfs.bean + '(data);\n';
 				methods += '            }).error(function(e) {\n';
 				methods += '            	console.error(e);\n';
@@ -140,7 +142,6 @@ var jsArchetype = {
 		serviceData.jsCode += '    };\n';
 		serviceData.jsCode += '\n';
 		serviceData.jsCode += methods + '\n';
-		serviceData.jsCode += '\n';
 		serviceData.jsCode += '    return ' + name + ';\n';
 		serviceData.jsCode += '} ]);\n';
 
