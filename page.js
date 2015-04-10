@@ -45,7 +45,7 @@ var page = {
                { "id" : "controllers", "parent" : "js", "text" : "controllers" },
                { "id" : "models", "parent" : "js", "text" : "models" },
                { "id" : "services", "parent" : "js", "text" : "services" },
-               { "id" : "App", "parent" : "resources", "text" : "App.js", "icon" : "glyphicon glyphicon-fire", "state" : { "selected" : true } }
+               { "id" : "app", "parent" : "resources", "text" : data.jsArchetype.projectName + ".js", "icon" : "glyphicon glyphicon-fire", "state" : { "selected" : true } }
             ]
         };
         
