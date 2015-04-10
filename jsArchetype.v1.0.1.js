@@ -110,9 +110,20 @@ var jsArchetype = {
 
 		var includes = '$http';
 		var namespaces = '\'$http\'';
+		var methods = '';
 		srvc.includes.forEach(function(incl) {
-		    includes += ', ' + incl;
-		    namespaces += ', \'' + incl + '\'';
+		    	includes += ', ' + incl;
+		    	namespaces += ', \'' + incl + '\'';
+		    
+			if(incl.methods!= undefined){
+				incl.methods.forEach(function(mthd) {
+					methods += '    ' + name + '.' + mthd.name + ' = function(payload, params) {\n';
+					methods += '        return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
+					methods += '            params : params\n';
+					methods += '        });\n';
+					methods += '    };\n';
+				}
+			}
 		});
 
 		serviceData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.factory(\'' + name + '\', [ ' + namespaces + ', function(' + includes + ') {\n';
@@ -121,20 +132,14 @@ var jsArchetype = {
 		serviceData.jsCode += '    var ' + name + ' = {};\n';
 		serviceData.jsCode += '    var environment = {\n';
 		serviceData.jsCode += '        \'mock\' : function(uri) {\n';
-		serviceData.jsCode += '            return \'http://demo1936435.mockable.io\' + uri;\n';
+		serviceData.jsCode += '            return \'' + srvc.mockUrl + '\' + uri;\n';
 		serviceData.jsCode += '        },\n';
 		serviceData.jsCode += '        \'prod\' : function(uri) {\n';
-		serviceData.jsCode += '            return \'/rest\' + uri;\n';
+		serviceData.jsCode += '            return \'' + srvc.prodUrl + '\' + uri;\n';
 		serviceData.jsCode += '        }\n';
 		serviceData.jsCode += '    };\n';
 		serviceData.jsCode += '\n';
-
-		serviceData.jsCode += '    ' + name + '.getByFilter = function(payload, params) {\n';
-		serviceData.jsCode += '        return $http.get(environment.prod(\'/example/attribute\'), payload, {\n';
-		serviceData.jsCode += '            params : params\n';
-		serviceData.jsCode += '        });\n';
-		serviceData.jsCode += '    };\n';
-
+		serviceData.jsCode += methods + '\n';
 		serviceData.jsCode += '\n';
 		serviceData.jsCode += '    return ' + name + ';\n';
 		serviceData.jsCode += '} ]);\n';
