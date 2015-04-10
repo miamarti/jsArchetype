@@ -123,7 +123,7 @@ var jsArchetype = {
 				methods += '            params : params\n';
 				methods += '        });\n';
 				methods += '    };\n';
-			}
+			});
 		}
 
 		serviceData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.factory(\'' + name + '\', [ ' + namespaces + ', function(' + includes + ') {\n';
