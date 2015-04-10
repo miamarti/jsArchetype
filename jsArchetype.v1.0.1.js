@@ -138,8 +138,10 @@ var jsArchetype = {
 				if(mthd.mockToModel!= undefined){
 					comment = '//';
 					methods += '\n';
-					methods += '        /* $ bower install ng.httpFake --save */\n';
-					methods += '        /* https://github.com/miamarti/ng.httpFake */\n';
+					methods += '        /* Visit the component page https://github.com/miamarti/ng.httpFake\n';
+					methods += '         * Install using the bower command: */\n';
+					methods += '         * > $ bower install ng.httpFake --save */\n';
+					methods += '         */\n';
 					methods += '        return new $httpFake(' + JSON.stringify(jsArchetype.mocks[mthd.mockToModel]) + ', false);\n';
 					methods += '\n';
 				}
