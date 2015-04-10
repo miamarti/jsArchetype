@@ -114,17 +114,17 @@ var jsArchetype = {
 		srvc.includes.forEach(function(incl) {
 		    	includes += ', ' + incl;
 		    	namespaces += ', \'' + incl + '\'';
-		    
-			if(incl.methods!= undefined){
-				incl.methods.forEach(function(mthd) {
-					methods += '    ' + name + '.' + mthd.name + ' = function(payload, params) {\n';
-					methods += '        return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
-					methods += '            params : params\n';
-					methods += '        });\n';
-					methods += '    };\n';
-				}
-			}
 		});
+		
+		if(srvc.methods!= undefined){
+			srvc.methods.forEach(function(mthd) {
+				methods += '    ' + name + '.' + mthd.name + ' = function(payload, params) {\n';
+				methods += '        return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
+				methods += '            params : params\n';
+				methods += '        });\n';
+				methods += '    };\n';
+			}
+		}
 
 		serviceData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.factory(\'' + name + '\', [ ' + namespaces + ', function(' + includes + ') {\n';
 		serviceData.jsCode += '\n';
