@@ -54,16 +54,6 @@ var jsArchetype = {
 			});
 		}
 		
-		methods += '        /*\n';
-		methods += '        * Example method that will be exposed in the $scope\n';
-		methods += '        * @param\n';
-		methods += '        * @return\n';
-		methods += '        * */\n';
-		methods += '        load : function(){\n';
-		methods += '            console.log(\'The load method was executed ...\');\n';
-		methods += '        }\n';
-		methods += '\n';
-		
 		if(cntrl.methodsForService!= undefined){
 			
 			cntrl.methodsForService.forEach(function(mthdfs) {
@@ -83,6 +73,16 @@ var jsArchetype = {
 				methods += '\n';
 			});
 		}
+		
+		methods += '        /*\n';
+		methods += '        * Example method that will be exposed in the $scope\n';
+		methods += '        * @param\n';
+		methods += '        * @return\n';
+		methods += '        * */\n';
+		methods += '        load : function(){\n';
+		methods += '            console.log(\'The load method was executed ...\');\n';
+		methods += '        }\n';
+		methods += '\n';
 		
 		controllerData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.controller(\'' + name + '\', function(' + includes + ') {\n';
 		controllerData.jsCode += '\n';
