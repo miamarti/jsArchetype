@@ -137,7 +137,10 @@ var jsArchetype = {
 				var comment = '';
 				if(mthd.mockToModel!= undefined){
 					comment = '//';
-					methods += '        return new $httpFake(' + jsArchetype.mocks[mthd.mockToModel] + ', false);\n';
+					methods += '\n';
+					methods += '        /* $ bower install ng.httpFake --save */\n';
+					methods += '        /* https://github.com/miamarti/ng.httpFake */\n';
+					methods += '        return new $httpFake(' + JSON.stringify(jsArchetype.mocks[mthd.mockToModel]) + ', false);\n';
 					methods += '\n';
 				}
 				methods += '       ' + comment + ' return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
