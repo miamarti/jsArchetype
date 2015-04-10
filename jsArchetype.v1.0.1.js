@@ -25,8 +25,9 @@ var jsArchetype = {
 		    includes += ', ' + incl;
 		});
 
-		var scopePointer = '    $scope.load = _this.load.bind(_this);\n';
+		var scopePointer = '';
 		var methods = '';
+		var methodsForService = '';
 		methods += '        /*\n';
 		methods += '        * Constructor method\n';
 		methods += '        * @param\n';
@@ -60,11 +61,24 @@ var jsArchetype = {
 				scopePointer += '    $scope.' + mthd.scopePointer + ' = _this.' + mthd.name + '.bind(_this);\n';
 			}
 		});
+		
+		cntrl.methodsForService.forEach(function(mthdfs) {
+			methodsForService += '        /*\n';
+			methodsForService += '        * ' + mthdfs.name + '\n';
+			methodsForService += '        * @param\n';
+			methodsForService += '        * @return\n';
+			methodsForService += '        * */\n';
+			methodsForService += '        ' + mthdfs.name + ' : function(){\n';
+			methodsForService += '            \n';
+			methodsForService += '        },\n';
+			methodsForService += '\n';
+		});
 
 		controllerData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.controller(\'' + name + '\', function(' + includes + ') {\n';
 		controllerData.jsCode += '\n';
 		controllerData.jsCode += '    var _this = {\n\n';
 		controllerData.jsCode += 	methods + '\n';
+		controllerData.jsCode += 	methodsForService + '\n';
 		controllerData.jsCode += '    };\n';
 		controllerData.jsCode += '\n';
 		controllerData.jsCode += scopePointer;
