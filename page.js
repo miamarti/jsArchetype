@@ -73,6 +73,7 @@ var page = {
         page.showResult();
         page.setTree(page.archetype.tree);
         page.editor.setValue('');
+        $('.codeArea').addClass('w800px');
     },
     
     setEventlistner : function(){
