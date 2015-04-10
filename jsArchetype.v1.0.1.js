@@ -267,6 +267,7 @@ var jsArchetype = {
 	    console.error('Please enter a type!!!');
 	}
 	return {
+	    projectName : jsArchetype.camelCase(jsArchetype.config.projectName),
 	    controllers : jsArchetype.controllers,
 	    services : jsArchetype.services,
 	    models : jsArchetype.models
