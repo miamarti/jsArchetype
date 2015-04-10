@@ -37,15 +37,16 @@ var page = {
     
     getGenerator : function(payload){
         var id = 0;
+        var jsArchetype = jsArchetype.run(payload);
         var data = {
-            jsArchetype : jsArchetype.run(payload),
+            jsArchetype : jsArchetype,
             tree : [
                { "id" : "resources", "parent" : "#", "text" : "resources", "state" : { "opened" : true } },
                { "id" : "js", "parent" : "resources", "text" : "js", "state" : { "opened" : true } },
                { "id" : "controllers", "parent" : "js", "text" : "controllers" },
                { "id" : "models", "parent" : "js", "text" : "models" },
                { "id" : "services", "parent" : "js", "text" : "services" },
-               { "id" : "app", "parent" : "resources", "text" : data.jsArchetype.projectName + ".js", "icon" : "glyphicon glyphicon-fire", "state" : { "selected" : true } }
+               { "id" : "app", "parent" : "resources", "text" : jsArchetype.projectName + ".js", "icon" : "glyphicon glyphicon-fire", "state" : { "selected" : true } }
             ]
         };
         
