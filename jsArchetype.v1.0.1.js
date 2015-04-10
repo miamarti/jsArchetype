@@ -25,8 +25,8 @@ var jsArchetype = {
 		    includes += ', ' + incl;
 		});
 
+		var scopePointer = '    $scope.load = _this.load.bind(_this);\n';
 		var methods = '';
-		methods += '        /*\n';
 		methods += '        /*\n';
 		methods += '        * Constructor method\n';
 		methods += '        * @param\n';
@@ -36,34 +36,38 @@ var jsArchetype = {
 		methods += '            _this.load();\n';
 		methods += '        },\n';
 		methods += '\n';
+		methods += '        /*\n';
+		methods += '        * Example method that will be exposed in the $scope\n';
+		methods += '        * @param\n';
+		methods += '        * @return\n';
+		methods += '        * */\n';
+		methods += '        load : function(){\n';
+		methods += '            console.log(\'The load method was executed ...\');\n';
+		methods += '        }\n';
+		methods += '\n';
 		cntrl.methods.forEach(function(mthd) {
 			methods += '        /*\n';
-			methods += '        /*\n';
-			methods += '        * ' + mthd + '\n';
+			methods += '        * ' + mthd.name + '\n';
 			methods += '        * @param\n';
 			methods += '        * @return\n';
 			methods += '        * */\n';
-			methods += '        ' + mthd + ' : function(){\n';
+			methods += '        ' + mthd.name + ' : function(){\n';
 			methods += '            \n';
 			methods += '        },\n';
 			methods += '\n';
+			
+			if(mthd.scopePointer != undefined){
+				scopePointer += '    $scope.' + mthd.scopePointer + ' = _this.' + mthd.name + '.bind(_this);\n';
+			}
 		});
 
 		controllerData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.controller(\'' + name + '\', function(' + includes + ') {\n';
 		controllerData.jsCode += '\n';
 		controllerData.jsCode += '    var _this = {\n\n';
-		controllerData.jsCode += '        /*\n';
-		controllerData.jsCode += '        * Example method that will be exposed in the $scope\n';
-		controllerData.jsCode += '        * @param\n';
-		controllerData.jsCode += '        * @return\n';
-		controllerData.jsCode += '        * */\n';
-		controllerData.jsCode += '        load : function(){\n';
-		controllerData.jsCode += '            console.log(\'The load method was executed ...\');\n';
-		controllerData.jsCode += '        }\n';
-		controllerData.jsCode += methods + '\n';
+		controllerData.jsCode += 	methods + '\n';
 		controllerData.jsCode += '    };\n';
 		controllerData.jsCode += '\n';
-		controllerData.jsCode += '    $scope.load = _this.load.bind(_this)\n';
+		controllerData.jsCode += scopePointer;
 		controllerData.jsCode += '    _this.main();\n';
 		controllerData.jsCode += '});\n';
 
