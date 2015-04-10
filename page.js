@@ -65,6 +65,9 @@ var page = {
             data.tree.push({ "id" : id, "parent" : "models", "text" : obj.jsName, "icon" : "glyphicon glyphicon-leaf", "jsCode": obj.jsCode });
         });
         
+        id++;
+        data.tree.push({ "id" : id, "parent" : "resources", "text" : data.jsArchetype.app.jsName, "icon" : "glyphicon glyphicon-leaf", "jsCode": data.jsArchetype.app.jsCode });
+        
         return data;
     },
     
