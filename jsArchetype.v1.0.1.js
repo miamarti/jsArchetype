@@ -139,13 +139,13 @@ var jsArchetype = {
 					comment = '//';
 					methods += '\n';
 					methods += '        /* Visit the component page https://github.com/miamarti/ng.httpFake\n';
-					methods += '         * Install using the bower command: */\n';
-					methods += '         * > $ bower install ng.httpFake --save */\n';
+					methods += '         * Install using the bower command:\n';
+					methods += '         * > $ bower install ng.httpFake --save\n';
 					methods += '         */\n';
 					methods += '        return new $httpFake(' + JSON.stringify(jsArchetype.mocks[mthd.mockToModel]) + ', false);\n';
 					methods += '\n';
 				}
-				methods += '       ' + comment + ' return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
+				methods += '       ' + comment + ' return $http.' + mthd.type + '(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
 				methods += '       ' + comment + '     params : params\n';
 				methods += '       ' + comment + ' });\n';
 				
