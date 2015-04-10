@@ -81,7 +81,6 @@ var jsArchetype = {
 		methods += '        * @return\n';
 		methods += '        * */\n';
 		methods += '        load : function(){\n';
-		methods += '            console.log(\'The load method was executed ...\');\n';
 		methods += triggersServiceMethods;
 		methods += '        }\n';
 		methods += '\n';
