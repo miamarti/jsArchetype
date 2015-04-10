@@ -27,7 +27,6 @@ var jsArchetype = {
 
 		var scopePointer = '';
 		var methods = '';
-		var methodsForService = '';
 		methods += '        /*\n';
 		methods += '        * Constructor method\n';
 		methods += '        * @param\n';
@@ -36,16 +35,6 @@ var jsArchetype = {
 		methods += '        main : function(){\n';
 		methods += '            _this.load();\n';
 		methods += '        },\n';
-		methods += '\n';
-		methods += '        /*\n';
-		methods += '        * Example method that will be exposed in the $scope\n';
-		methods += '        * @param\n';
-		methods += '        * @return\n';
-		methods += '        * */\n';
-		methods += '        load : function(){\n';
-		methods += '            console.log(\'The load method was executed ...\');\n';
-		methods += '        }\n';
-		methods += '\n';
 		cntrl.methods.forEach(function(mthd) {
 			methods += '        /*\n';
 			methods += '        * ' + mthd.name + '\n';
@@ -61,24 +50,33 @@ var jsArchetype = {
 				scopePointer += '    $scope.' + mthd.scopePointer + ' = _this.' + mthd.name + '.bind(_this);\n';
 			}
 		});
+		methods += '\n';
+		methods += '        /*\n';
+		methods += '        * Example method that will be exposed in the $scope\n';
+		methods += '        * @param\n';
+		methods += '        * @return\n';
+		methods += '        * */\n';
+		methods += '        load : function(){\n';
+		methods += '            console.log(\'The load method was executed ...\');\n';
+		methods += '        }\n';
+		methods += '\n';
 		
 		cntrl.methodsForService.forEach(function(mthdfs) {
-			methodsForService += '        /*\n';
-			methodsForService += '        * ' + mthdfs.name + '\n';
-			methodsForService += '        * @param\n';
-			methodsForService += '        * @return\n';
-			methodsForService += '        * */\n';
-			methodsForService += '        ' + mthdfs.name + ' : function(){\n';
-			methodsForService += '            \n';
-			methodsForService += '        },\n';
-			methodsForService += '\n';
+			methods += '        /*\n';
+			methods += '        * ' + mthdfs.name + '\n';
+			methods += '        * @param\n';
+			methods += '        * @return\n';
+			methods += '        * */\n';
+			methods += '        ' + mthdfs.name + ' : function(){\n';
+			methods += '            \n';
+			methods += '        },\n';
+			methods += '\n';
 		});
 
 		controllerData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.controller(\'' + name + '\', function(' + includes + ') {\n';
 		controllerData.jsCode += '\n';
 		controllerData.jsCode += '    var _this = {\n\n';
 		controllerData.jsCode += 	methods + '\n';
-		controllerData.jsCode += 	methodsForService + '\n';
 		controllerData.jsCode += '    };\n';
 		controllerData.jsCode += '\n';
 		controllerData.jsCode += scopePointer;
