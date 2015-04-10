@@ -45,8 +45,7 @@ var page = {
                { "id" : "js", "parent" : "resources", "text" : "js", "state" : { "opened" : true } },
                { "id" : "controllers", "parent" : "js", "text" : "controllers" },
                { "id" : "models", "parent" : "js", "text" : "models" },
-               { "id" : "services", "parent" : "js", "text" : "services" },
-               { "id" : "app", "parent" : "resources", "text" : result.projectName + ".js", "icon" : "glyphicon glyphicon-fire", "state" : { "selected" : true } }
+               { "id" : "services", "parent" : "js", "text" : "services" }
             ]
         };
         
