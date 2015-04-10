@@ -4,6 +4,7 @@ var jsArchetype = {
     services : [],
     models : [],
     mocks : {},
+    app : '',
 
     camelCase : function(s) {
 	return (s || '').toLowerCase().replace(/(\b|-)\w/g, function(m) {
@@ -254,6 +255,10 @@ var jsArchetype = {
 		jsArchetype.models.push(modelData);
 		jsArchetype.mocks[name] = mdl.signature;
 	    });
+	},
+	
+	setApp : function(){
+		jsArchetype.app = 'var ' + jsArchetype.camelCase(jsArchetype.config.projectName) + ' = angular.module(\'' + jsArchetype.camelCase(jsArchetype.config.projectName) + '\', []);';
 	}
     },
 
@@ -263,6 +268,7 @@ var jsArchetype = {
 	    jsArchetype[config.type].setControllers();
 	    jsArchetype[config.type].setModels();
 	    jsArchetype[config.type].setServices();
+	    jsArchetype[config.type].setApp();
 	} catch (e) {
 	    console.error('Please enter a type!!!');
 	}
@@ -270,7 +276,8 @@ var jsArchetype = {
 	    projectName : jsArchetype.camelCase(jsArchetype.config.projectName),
 	    controllers : jsArchetype.controllers,
 	    services : jsArchetype.services,
-	    models : jsArchetype.models
+	    models : jsArchetype.models,
+	    app : jsArchetype.app
 	};
     }
 };
