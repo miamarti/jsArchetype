@@ -67,7 +67,7 @@ var jsArchetype = {
 
 				var payload = '{}';
 				if(mthdfs.payload!= undefined){
-					payload = JSON.stringify(mthdfs.params);
+					payload = JSON.stringify(mthdfs.payload);
 				};
 				var params = '{}';
 				if(mthdfs.params!= undefined){
