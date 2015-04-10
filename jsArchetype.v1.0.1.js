@@ -65,14 +65,14 @@ var jsArchetype = {
 				methods += '        ' + mthdfs.name + ' : function(){\n';
 				methods += '            $scope.' + mthdfs.variableScope + ' = [];\n';
 				methods += '            ' + mthdfs.service + '.' + mthdfs.name + '().success(function(data) {\n';
-				methods += '            	$scope.' + mthdfs.variableScope + ' = new ' + mthdfs.classBean + '(data);\n';
+				methods += '            	$scope.' + mthdfs.variableScope + ' = new ' + mthdfs.bean + '(data);\n';
 				methods += '            }).error(function(e) {\n';
 				methods += '            	console.error(e);\n';
 				methods += '            });\n';
 				methods += '        },\n';
 				methods += '\n';
+				triggersServiceMethods += '            _this.' + mthdfs.name + '();\n';
 			});
-			triggersServiceMethods += '            _this.' + mthdfs.name + '();\n';
 		}
 		
 		methods += '        /*\n';
