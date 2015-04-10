@@ -3,6 +3,7 @@ var jsArchetype = {
     controllers : [],
     services : [],
     models : [],
+    mocks : {},
 
     camelCase : function(s) {
 	return (s || '').toLowerCase().replace(/(\b|-)\w/g, function(m) {
@@ -131,9 +132,18 @@ var jsArchetype = {
 		if(srvc.methods!= undefined){
 			srvc.methods.forEach(function(mthd) {
 				methods += '    ' + name + '.' + mthd.name + ' = function(payload, params) {\n';
-				methods += '        return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
-				methods += '            params : params\n';
-				methods += '        });\n';
+				
+				
+				var comment = '';
+				if(mthd.mockToModel!= undefined){
+					comment = '//';
+					methods += '        return new $httpFake(' + jsArchetype.mocks[mthd.mockToModel] + ', false);\n';
+					methods += '\n';
+				}
+				methods += '       ' + comment + ' return $http.get(environment.prod(\'' + mthd.uri + '\'), payload, {\n';
+				methods += '       ' + comment + '     params : params\n';
+				methods += '       ' + comment + ' });\n';
+				
 				methods += '    };\n';
 			});
 		}
@@ -218,6 +228,7 @@ var jsArchetype = {
 		if (config.angular) {
 		    bean = config.appName + '.factory(\'' + config.name + '\', [ function() {' + bean + '    return ' + config.name + ';\n\n' + '} ]);';
 		}
+		
 		return bean;
 	    };
 
@@ -236,6 +247,7 @@ var jsArchetype = {
 		    signature : mdl.signature
 		});
 		jsArchetype.models.push(modelData);
+		jsArchetype.mocks[name] = mdl.signature;
 	    });
 	}
     },
@@ -244,8 +256,8 @@ var jsArchetype = {
 	jsArchetype.config = config;
 	try {
 	    jsArchetype[config.type].setControllers();
-	    jsArchetype[config.type].setServices();
 	    jsArchetype[config.type].setModels();
+	    jsArchetype[config.type].setServices();
 	} catch (e) {
 	    console.error('Please enter a type!!!');
 	}
