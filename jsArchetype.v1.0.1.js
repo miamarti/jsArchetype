@@ -27,6 +27,7 @@ var jsArchetype = {
 
 		var scopePointer = '';
 		var methods = '';
+		var triggersServiceMethods = '';
 		methods += '        /*\n';
 		methods += '        * Constructor method\n';
 		methods += '        * @param\n';
@@ -55,7 +56,6 @@ var jsArchetype = {
 		}
 		
 		if(cntrl.methodsForService!= undefined){
-			
 			cntrl.methodsForService.forEach(function(mthdfs) {
 				methods += '        /*\n';
 				methods += '        * ' + mthdfs.name + '\n';
@@ -72,6 +72,7 @@ var jsArchetype = {
 				methods += '        },\n';
 				methods += '\n';
 			});
+			triggersServiceMethods += '            _this.' + mthdfs.name + '();\n';
 		}
 		
 		methods += '        /*\n';
@@ -81,6 +82,7 @@ var jsArchetype = {
 		methods += '        * */\n';
 		methods += '        load : function(){\n';
 		methods += '            console.log(\'The load method was executed ...\');\n';
+		methods += triggersServiceMethods;
 		methods += '        }\n';
 		methods += '\n';
 		
