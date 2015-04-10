@@ -258,7 +258,13 @@ var jsArchetype = {
 	},
 	
 	setApp : function(){
-		jsArchetype.app = 'var ' + jsArchetype.camelCase(jsArchetype.config.projectName) + ' = angular.module(\'' + jsArchetype.camelCase(jsArchetype.config.projectName) + '\', []);';
+		var appData = {
+		    className : jsArchetype.camelCase(jsArchetype.config.projectName),
+		    jsName : jsArchetype.camelCase(jsArchetype.config.projectName) + '.js',
+		    jsCode : '\n'
+		};
+		appData.jsCode = 'var ' + jsArchetype.camelCase(jsArchetype.config.projectName) + ' = angular.module(\'' + jsArchetype.camelCase(jsArchetype.config.projectName) + '\', []);';
+		jsArchetype.app = appData;
 	}
     },
 
