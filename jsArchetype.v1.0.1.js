@@ -54,7 +54,6 @@ var jsArchetype = {
 			});
 		}
 		
-		methods += '\n';
 		methods += '        /*\n';
 		methods += '        * Example method that will be exposed in the $scope\n';
 		methods += '        * @param\n';
@@ -66,6 +65,7 @@ var jsArchetype = {
 		methods += '\n';
 		
 		if(cntrl.methodsForService!= undefined){
+			
 			cntrl.methodsForService.forEach(function(mthdfs) {
 				methods += '        /*\n';
 				methods += '        * ' + mthdfs.name + '\n';
@@ -73,7 +73,12 @@ var jsArchetype = {
 				methods += '        * @return\n';
 				methods += '        * */\n';
 				methods += '        ' + mthdfs.name + ' : function(){\n';
-				methods += '            \n';
+				methods += '            $scope.' + mthdfs.variableScope + ' = [];\n';
+				methods += '            ' + mthdfs.service + '.' + mthdfs.name + '().success(function(data) {\n';
+				methods += '            	$scope.' + mthdfs.variableScope + ' = new ' + mthdfs.bean + '(data);\n';
+				methods += '            }).error(function(e) {\n';
+				methods += '            	console.error(e);\n';
+				methods += '            });\n';
 				methods += '        },\n';
 				methods += '\n';
 			});
