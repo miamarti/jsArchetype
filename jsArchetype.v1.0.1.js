@@ -64,8 +64,18 @@ var jsArchetype = {
 				methods += '        * */\n';
 				methods += '        ' + mthdfs.name + ' : function(){\n';
 				methods += '            $scope.' + mthdfs.variableScope + ' = [];\n';
-				methods += '            var payload = {};\n';
-				methods += '            var params = {};\n';
+
+				var payload = '{}';
+				if(mthdfs.payload!= undefined){
+					payload = JSON.stringify(mthdfs.params);
+				};
+				var params = '{}';
+				if(mthdfs.params!= undefined){
+					params = JSON.stringify(mthdfs.params);
+				};
+				
+				methods += '            var params = ' + params + ';\n';
+				methods += '            var payload = ' + payload + ';\n';
 				methods += '            ' + mthdfs.service + '.' + mthdfs.name + '(payload, params).success(function(data) {\n';
 				methods += '            	$scope.' + mthdfs.variableScope + ' = new ' + mthdfs.bean + '(data);\n';
 				methods += '            }).error(function(e) {\n';
