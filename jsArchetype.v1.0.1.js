@@ -266,16 +266,9 @@ var jsArchetype = {
 		appData.jsCode  = 'var ' + jsArchetype.camelCase(jsArchetype.config.projectName) + ' = angular.module(\'' + jsArchetype.camelCase(jsArchetype.config.projectName) + '\', ' + JSON.stringify(jsArchetype.config.plugins) + ');\n';
 		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.config([ \'$stateProvider\', \'$urlRouterProvider\', \'$httpProvider\', function($stateProvider, $urlRouterProvider, $httpProvider) {\n';
 		appData.jsCode += '	var stateBean = function(url, template, data) {\n';
-		appData.jsCode += '	    this.url;\n';
-		appData.jsCode += '	    this.templateUrl;\n';
-		appData.jsCode += '	    this.data;\n';
-		appData.jsCode += '	    this.login;\n';
-		appData.jsCode += '	    this.main = function() {\n';
-		appData.jsCode += '			this.url = url;\n';
-		appData.jsCode += '			this.templateUrl = \' + template : \';\n';
-		appData.jsCode += '			this.data = data;\n';
-		appData.jsCode += '	    };\n';
-		appData.jsCode += '	    this.main();\n';
+		appData.jsCode += '	    this.url = url;\n';
+		appData.jsCode += '	    this.templateUrl = template;\n';
+		appData.jsCode += '	    this.data = data;\n';
 		appData.jsCode += '	};\n';
 		appData.jsCode += '\n';
 		
