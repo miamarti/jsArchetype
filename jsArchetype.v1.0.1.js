@@ -271,9 +271,9 @@ var jsArchetype = {
 		appData.jsCode += '	    this.data;\n';
 		appData.jsCode += '	    this.login;\n';
 		appData.jsCode += '	    this.main = function() {\n';
-		appData.jsCode += '		this.url = url;\n';
-		appData.jsCode += '		this.templateUrl = \' + template : \';\n';
-		appData.jsCode += '		this.data = data;\n';
+		appData.jsCode += '			this.url = url;\n';
+		appData.jsCode += '			this.templateUrl = \' + template : \';\n';
+		appData.jsCode += '			this.data = data;\n';
 		appData.jsCode += '	    };\n';
 		appData.jsCode += '	    this.main();\n';
 		appData.jsCode += '	};\n';
