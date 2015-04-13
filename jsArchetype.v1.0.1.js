@@ -296,10 +296,15 @@ var jsArchetype = {
 		appData.jsCode += '});\n';
 		appData.jsCode += '\n';
 		
-		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.run([ \'$rootScope', \'$state\', function($rootScope, $state) {\n';
-		appData.jsCode += '    $rootScope.$state = $state;\n';
-		appData.jsCode += '} ]);\n';
-
+		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.factory(\'httpErrorInterceptor\', function($rootScope, $q) {\n';
+		appData.jsCode += '    return {\n';
+		appData.jsCode += '	\'responseError\' : function(rejection) {\n';
+		appData.jsCode += '		return $q.reject(rejection);\n';
+		appData.jsCode += '	}\n';
+		appData.jsCode += '    };\n';
+		appData.jsCode += '});\n';
+		appData.jsCode += '\n';
+		
 		jsArchetype.app = appData;
 	}
     },
