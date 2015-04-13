@@ -19,7 +19,6 @@ var page = {
         if(file.jsCode != undefined){
             page.editor.setValue(file.jsCode);
         }
-        console.log(file);
     },
     
     setTree : function(json){
@@ -72,7 +71,7 @@ var page = {
     
     run : function(){
         page.archetype = page.getGenerator((new Function('return ' + page.editor.getValue() + ';'))());
-        //console.log(page.archetype);
+        console.log(page.archetype);
         page.showResult();
         page.setTree(page.archetype.tree);
         page.editor.setValue('');
