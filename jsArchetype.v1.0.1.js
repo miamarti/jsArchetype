@@ -272,7 +272,7 @@ var jsArchetype = {
 				routerInit = false;
 				appData.jsCode += '	$urlRouterProvider.otherwise(\'' + router.state + '\');\n';
 			}
-			appData.jsCode += '	$stateProvider.state(\'' + router.state + '\', {url : \'' + router.hash + '\', templateUrl : \'' + router.template + '\', data : \'' + JSON.stringify(router.data) + '\'}));\n';
+			appData.jsCode += '	$stateProvider.state(\'' + router.state + '\', { url : \'' + router.hash + '\', templateUrl : \'' + router.template + '\', data :  + JSON.stringify(router.data) + ' }));\n';
 		});
 		
 		appData.jsCode += '} ]);\n';
