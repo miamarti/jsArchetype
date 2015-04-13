@@ -266,14 +266,17 @@ var jsArchetype = {
 		appData.jsCode  = 'var ' + jsArchetype.camelCase(jsArchetype.config.projectName) + ' = angular.module(\'' + jsArchetype.camelCase(jsArchetype.config.projectName) + '\', ' + JSON.stringify(jsArchetype.config.plugins) + ');\n';
 		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.config([ \'$stateProvider\', \'$urlRouterProvider\', \'$httpProvider\', function($stateProvider, $urlRouterProvider, $httpProvider) {\n';
 		appData.jsCode += '\n';
-		var routerInit = true;
-		jsArchetype.config.routers.forEach(function(router){
-			if(routerInit){
-				routerInit = false;
-				appData.jsCode += '	$urlRouterProvider.otherwise(\'' + router.state + '\');\n';
-			}
-			appData.jsCode += '	$stateProvider.state(\'' + router.state + '\', { url : \'' + router.hash + '\', templateUrl : \'' + router.template + '\', data : ' + JSON.stringify(router.data) + ' }));\n';
-		});
+		
+		if(jsArchetype.config.routers!= undefined){
+			var routerInit = true;
+			jsArchetype.config.routers.forEach(function(router){
+				if(routerInit){
+					routerInit = false;
+					appData.jsCode += '	$urlRouterProvider.otherwise(\'' + router.state + '\');\n';
+				}
+				appData.jsCode += '	$stateProvider.state(\'' + router.state + '\', { url : \'' + router.hash + '\', templateUrl : \'' + router.template + '\', data : ' + JSON.stringify(router.data) + ' }));\n';
+			});
+		}
 		
 		appData.jsCode += '} ]);\n';
 		jsArchetype.app = appData;
