@@ -305,6 +305,10 @@ var jsArchetype = {
 		appData.jsCode += '});\n';
 		appData.jsCode += '\n';
 		
+		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.run([ \'$rootScope\', \'$state\', function($rootScope, $state) {\n';
+		appData.jsCode += '    $rootScope.$state = $state;\n';
+		appData.jsCode += '} ]);\n';
+		
 		jsArchetype.app = appData;
 	}
     },
