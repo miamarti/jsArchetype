@@ -264,20 +264,31 @@ var jsArchetype = {
 		    jsCode : '\n'
 		};
 		appData.jsCode  = 'var ' + jsArchetype.camelCase(jsArchetype.config.projectName) + ' = angular.module(\'' + jsArchetype.camelCase(jsArchetype.config.projectName) + '\', ' + JSON.stringify(jsArchetype.config.plugins) + ');\n';
-		appData.jsCode += 'SellersApp.config([ \'$stateProvider\', \'$urlRouterProvider\', \'$httpProvider\', function($stateProvider, $urlRouterProvider, $httpProvider) {\n';
-		appData.jsCode += '	var stateBean = function(url, template, rule, data) {\n';
+		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.config([ \'$stateProvider\', \'$urlRouterProvider\', \'$httpProvider\', function($stateProvider, $urlRouterProvider, $httpProvider) {\n';
+		appData.jsCode += '	var stateBean = function(url, template, data) {\n';
 		appData.jsCode += '	    this.url;\n';
 		appData.jsCode += '	    this.templateUrl;\n';
 		appData.jsCode += '	    this.data;\n';
 		appData.jsCode += '	    this.login;\n';
 		appData.jsCode += '	    this.main = function() {\n';
 		appData.jsCode += '		this.url = url;\n';
-		appData.jsCode += '		this.templateUrl = (access[rule] ? \'' + jsArchetype.config.packagePath.split('/js/')[0] + '\' + template : \'' + jsArchetype.config.packagePath.split('/js/')[0] + 'pages/page-errors/403.html\');\n';
+		appData.jsCode += '		this.templateUrl = \' + template : \';\n';
 		appData.jsCode += '		this.data = data;\n';
 		appData.jsCode += '	    };\n';
 		appData.jsCode += '	    this.main();\n';
 		appData.jsCode += '	};\n';
-		appData.jsCode += '} ]);\n'
+		appData.jsCode += '\n';
+		
+		var routerInit = true;
+		jsArchetype.config.routers.forEach(function(router){
+			if(routerInit){
+				routerInit = false;
+				appData.jsCode += '	$urlRouterProvider.otherwise(\'' + router.state + '\');\n';
+			}
+			appData.jsCode += '	$stateProvider.state(\'' + router.state + '\', new stateBean(\'' + router.hash + '\', \'' + router.template + '\', ' + JSON.stringify(router.data) + '));\n';
+		});
+		
+		appData.jsCode += '} ]);\n';
 		jsArchetype.app = appData;
 	}
     },
