@@ -72,66 +72,66 @@
     packagePath : 'Example_Static_Dev/example/resources/js/controllers/seller/edit/exampleTab',
     plugins : [ 'ui.router', 'ui.bootstrap', 'oc.lazyLoad', 'ng.httpRequest', 'ng.httpFake', 'ng.accessLauncher', 'ui.select', 'ng.model', 'ng.pagination', 'ng.autocomplete', 'ng.serialize', 'ng.jstree' ],
     routers : [ {
-	state : 'home',
-	hash : '/home',
-	template : '/home.html',
-	data : {
-	    pageTitle : 'Stat Page'
-	}
+		state : 'home',
+		hash : '/home',
+		template : '/home.html',
+		data : {
+	    		pageTitle : 'Stat Page'
+		}
     } ],
 
     /*
      * Archetype controllers
      */
     controllers : [ {
-	name : 'example edit . example tab',
-	includes : [ '$rootScope', '$state', '$location', '$serialize', 'ExampleService', 'ExampleDataBean' ],
-	methods : [ {
-	    name : 'setSubmit',
-	    scopePointer : 'save'
-	} ],
-	methodsForService : [ {
-	    name : 'getExampleData',
-	    service : 'ExampleService',
-	    variableScope : 'exampleData',
-	    bean : 'ExampleDataBean',
-	    payload : {
-		name : '',
-		fone : '',
-		email : ''
-	    },
-	    params : {
-		id : ''
-	    }
-	} ]
+		name : 'example edit . example tab',
+		includes : [ '$rootScope', '$state', '$location', '$serialize', 'ExampleService', 'ExampleDataBean' ],
+		methods : [ {
+	    		name : 'setSubmit',
+	    		scopePointer : 'save'
+		} ],
+		methodsForService : [ {
+	    		name : 'getExampleData',
+	    		service : 'ExampleService',
+	    		variableScope : 'exampleData',
+	    		bean : 'ExampleDataBean',
+	    		payload : {
+				name : '',
+				fone : '',
+				email : ''
+	    		},
+	    		params : {
+				id : ''
+	    		}
+		} ]
     } ],
 
     /*
      * Archetype services
      */
     services : [ {
-	name : 'example',
-	mockUrl : 'http://demo.mockable.io',
-	prodUrl : '/mvc',
-	includes : [ '$http', '$httpRequest', '$httpFake' ],
-	methods : [ {
-	    type : 'get',
-	    name : 'getExampleData',
-	    uri : '/seller/example',
-	    mockToModel : 'SellerExampleBean'
-	} ]
+		name : 'example',
+		mockUrl : 'http://demo.mockable.io',
+		prodUrl : '/mvc',
+		includes : [ '$http', '$httpRequest', '$httpFake' ],
+		methods : [ {
+	    		type : 'get',
+	    		name : 'getExampleData',
+	    		uri : '/seller/example',
+	    		mockToModel : 'SellerExampleBean'
+		} ]
     } ],
 
     /*
      * Archetype models
      */
     models : [ {
-	name : 'seller example bean',
-	signature : {
-	    "id" : 33,
-	    "name" : "Miguel H.",
-	    "status" : 1
-	}
+		name : 'seller example bean',
+		signature : {
+	    		"id" : 33,
+	    		"name" : "Miguel H.",
+	    		"status" : 1
+		}
     } ]
 }</textarea>
 			</div>
