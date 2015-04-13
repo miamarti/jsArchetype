@@ -269,9 +269,9 @@ var jsArchetype = {
 		
 		if(jsArchetype.config.routers!= undefined){
 			var routerInit = true;
+			appData.jsCode += '	$httpProvider.interceptors.push(\'httpLoadingInterceptor\');\n';
+			appData.jsCode += '	$httpProvider.interceptors.push(\'httpErrorInterceptor\');\n';
 			jsArchetype.config.routers.forEach(function(router){
-				appData.jsCode += '	$httpProvider.interceptors.push(\'httpLoadingInterceptor\');\n';
-				appData.jsCode += '	$httpProvider.interceptors.push(\'httpErrorInterceptor\');\n';
 				if(routerInit){
 					routerInit = false;
 					appData.jsCode += '	$urlRouterProvider.otherwise(\'' + router.state + '\');\n';
@@ -286,21 +286,21 @@ var jsArchetype = {
 		
 		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.factory(\'httpLoadingInterceptor\', function($rootScope, $timeout) {\n';
 		appData.jsCode += '    return {\n';
-		appData.jsCode += '	\'request\' : function(config) {\n';
-		appData.jsCode += '		return config;\n';
-		appData.jsCode += '	},\n';
-		appData.jsCode += '	\'response\' : function(response) {\n';
-		appData.jsCode += '		return response;\n';
-		appData.jsCode += '	}\n';
+		appData.jsCode += '		\'request\' : function(config) {\n';
+		appData.jsCode += '			return config;\n';
+		appData.jsCode += '		},\n';
+		appData.jsCode += '		\'response\' : function(response) {\n';
+		appData.jsCode += '			return response;\n';
+		appData.jsCode += '		}\n';
 		appData.jsCode += '    };\n';
 		appData.jsCode += '});\n';
 		appData.jsCode += '\n';
 		
 		appData.jsCode += jsArchetype.camelCase(jsArchetype.config.projectName) + '.factory(\'httpErrorInterceptor\', function($rootScope, $q) {\n';
 		appData.jsCode += '    return {\n';
-		appData.jsCode += '	\'responseError\' : function(rejection) {\n';
-		appData.jsCode += '		return $q.reject(rejection);\n';
-		appData.jsCode += '	}\n';
+		appData.jsCode += '		\'responseError\' : function(rejection) {\n';
+		appData.jsCode += '			return $q.reject(rejection);\n';
+		appData.jsCode += '		}\n';
 		appData.jsCode += '    };\n';
 		appData.jsCode += '});\n';
 		appData.jsCode += '\n';
