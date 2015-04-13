@@ -71,10 +71,9 @@ var page = {
     
     run : function(){
         page.archetype = page.getGenerator((new Function('return ' + page.editor.getValue() + ';'))());
-        console.log(page.archetype);
         page.showResult();
         page.setTree(page.archetype.tree);
-        page.editor.setValue('');
+        page.editor.setValue(page.archetype.jsArchetype.app.jsCode);
         $('.codeArea').addClass('w800px');
         $('#btnRun').fadeOut('slow');
     },
