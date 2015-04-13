@@ -271,6 +271,8 @@ var jsArchetype = {
 			var routerInit = true;
 			appData.jsCode += '	$httpProvider.interceptors.push(\'httpLoadingInterceptor\');\n';
 			appData.jsCode += '	$httpProvider.interceptors.push(\'httpErrorInterceptor\');\n';
+			appData.jsCode += '\n';
+			
 			jsArchetype.config.routers.forEach(function(router){
 				if(routerInit){
 					routerInit = false;
